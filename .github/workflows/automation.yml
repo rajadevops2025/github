@@ -1,14 +1,22 @@
-name: Teest Node with workflow
+name: Test Node with workflow
 on: push
+
 jobs:
   first-job:
     name: Build with Node
     runs-on: ubuntu-latest
-    container: node:12.18.4
+    container: node:18  # Use supported LTS version
     steps:
-      - run: node --version
-      - run: npm --version
-      - name: 'Checkout Code'
+      - name: Show Node and NPM versions
+        run: |
+          node --version
+          npm --version
+
+      - name: Checkout Code
         uses: actions/checkout@v2
-      - run: npm install
-      - run: node index.js
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Run App
+        run: node index.js
