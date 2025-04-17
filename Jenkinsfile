@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     tools {
-        nodejs 'node18' // Name of Maven installation in Jenkins
+        nodejs 'node18' 
     }
 environment {
         GIT_CREDENTIALS_ID = "2dee6608-a49a-4ab0-90c0-3836e8f88c3b" // Use the ID from Step 1
